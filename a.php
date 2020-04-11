@@ -1,5 +1,3 @@
-Self Upload PHP
-=================
 <form method="POST" action="" enctype="multipart/form-data" >
 <input type="file" name="file" />
 <input type="submit" value="Upload" />
